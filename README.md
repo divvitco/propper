@@ -2,7 +2,7 @@
 Reduce React props on the fly without redux
 
 ## Example
-```
+```javascript
 import { propper } from '@overlaylabs/propper'
 
 // standard React components
