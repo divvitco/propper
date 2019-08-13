@@ -1,0 +1,31 @@
+{
+  "name": "propper",
+  "version": "1.0.0",
+  "description": "Transform React props on the fly without redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/overlay-labs/propper.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "props",
+    "transform"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/overlay-labs/propper/issues"
+  },
+  "homepage": "https://github.com/overlay-labs/propper#readme",
+  "peerDependency": {
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "react": "^16.9.0"
+  }
+}
