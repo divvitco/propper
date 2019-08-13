@@ -2,9 +2,10 @@
   "name": "@overlaylabs/propper",
   "version": "1.0.1",
   "description": "Transform React props on the fly without redux",
-  "main": "index.js",
+  "main": "/lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf lib/ && babel index.js -d lib/"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,14 @@
     "react": ">=16.8.0"
   },
   "devDependencies": {
-    "react": "^16.9.0"
+    "react": "^16.9.0",
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-stage-3": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.5"
   }
 }
