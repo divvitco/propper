@@ -1,6 +1,6 @@
 {
   "name": "@overlaylabs/propper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Transform React props on the fly without redux",
   "main": "index.js",
   "scripts": {
