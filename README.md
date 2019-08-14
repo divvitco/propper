@@ -1,4 +1,10 @@
 # propper
+![npm (scoped)](https://img.shields.io/npm/v/@overlaylabs/propper)
+![Travis](https://img.shields.io/travis/overlay-labs/propper/master)
+![NPM](https://img.shields.io/npm/l/@overlaylabs/propper)
+![GitHub issues](https://img.shields.io/github/issues-raw/overlay-labs/propper)
+![npm](https://img.shields.io/npm/dm/@overlaylabs/propper)
+
 Reduce React props on the fly without redux
 
 ## Example
