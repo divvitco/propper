@@ -1,4 +1,6 @@
 # propper
+![Travis](https://img.shields.io/travis/overlay-labs/propper/master)
+
 Reduce React props on the fly without redux
 
 ## Example
