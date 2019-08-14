@@ -4,11 +4,12 @@
   "description": "Transform React props on the fly without redux",
   "main": "/lib/index.js",
   "scripts": {
-    "test:old": "jest",
-    "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "test": "jest && codecov",
     "build": "rm -rf lib/ && babel index.js -d lib/"
   },
   "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
@@ -44,6 +45,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.5",
+    "codecov": "^3.5.0",
     "coveralls": "^3.0.6",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
