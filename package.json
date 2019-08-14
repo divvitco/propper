@@ -4,8 +4,8 @@
   "description": "Transform React props on the fly without redux",
   "main": "/lib/index.js",
   "scripts": {
-    "test": "jest",
-    "test:coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "test:old": "jest",
+    "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "build": "rm -rf lib/ && babel index.js -d lib/"
   },
   "jest": {
