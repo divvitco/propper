@@ -6,14 +6,14 @@ import { propper } from './index.js'
 
 class ClassComp extends Component {
   render () {
-    const { counter } = this.props
+    const { truthyCount } = this.props
 
-    return <>{counter}</>
+    return <>You have {truthyCount} items available</>
   }
 }
 
-const FuncComp = ({ counter }) => {
-  return <div></div>
+const FuncComp = ({ truthyCount }) => {
+  return <>You have {truthyCount} items available</>
 }
 
 test('the propper export is a function', () => {
@@ -32,32 +32,54 @@ test('the reduceProps function is called', () => {
   }))
   const ProppedComp = propper(mockReduceProps)(ClassComp)
 
-  const component =  mount(<ProppedComp items={[true, true, false]} />)
+  const wrapped =  mount(<ProppedComp items={[true, true, false]} />)
 
-  expect(component).toMatchSnapshot()
-  //console.log(component.instance().props);
-  // expect(component.childAt(0).props()).toEqual({ truthyCount: 2, forceUpdate: () => {} })
-  expect(Object.keys(component.childAt(0).props()).length).toEqual(2)
-  expect(component.childAt(0).props().forceUpdate).toBeInstanceOf( Function )
-  expect(component.childAt(0).props().truthyCount).toEqual(2)
+  // the reduceProp func should have been called once
   expect(mockReduceProps.mock.calls.length).toBe(1)
 })
 
-/*
-const component = renderer.create(
-  <Link page="http://www.facebook.com">Facebook</Link>,
-);
-let tree = component.toJSON();
-expect(tree).toMatchSnapshot();
+test('class components properly pass through dynamic props', () => {
+  const mockReduceProps = jest.fn(ownProps => ({
+    truthyCount: ownProps.items.filter(a => a).length
+  }))
+  const ProppedComp = propper(mockReduceProps)(ClassComp)
 
-// manually trigger the callback
-tree.props.onMouseEnter();
-// re-rendering
-tree = component.toJSON();
-expect(tree).toMatchSnapshot();
+  const wrapped =  mount(<ProppedComp items={[true, true, false]} />)
+  const comp = wrapped.childAt(0)
 
-// manually trigger the callback
-tree.props.onMouseLeave();
-// re-rendering
-tree = component.toJSON();
-expect(tree).toMatchSnapshot();*/
+  // ensure the wrapped tree is correct
+  expect(wrapped).toMatchSnapshot()
+
+  // ensre only two keys are present in resulting object
+  expect(Object.keys(comp.props()).length).toEqual(2)
+
+  // forceUpdate is auto-added & should be a function while truthyCount is dynamically added
+  expect(comp.props().forceUpdate).toBeInstanceOf(Function)
+  expect(comp.props().truthyCount).toEqual(2)
+
+  // the reduceProp func should have been called once
+  expect(mockReduceProps.mock.calls.length).toBe(1)
+})
+
+test('functional components properly pass through dynamic props', () => {
+  const mockReduceProps = jest.fn(ownProps => ({
+    truthyCount: ownProps.items.filter(a => a).length
+  }))
+  const ProppedComp = propper(mockReduceProps)(FuncComp)
+
+  const wrapped =  mount(<ProppedComp items={[true, true, false]} />)
+  const comp = wrapped.childAt(0)
+
+  // ensure the wrapped tree is correct
+  expect(wrapped).toMatchSnapshot()
+
+  // ensre only two keys are present in resulting object
+  expect(Object.keys(comp.props()).length).toEqual(2)
+
+  // forceUpdate is auto-added & should be a function while truthyCount is dynamically added
+  expect(comp.props().forceUpdate).toBeInstanceOf(Function)
+  expect(comp.props().truthyCount).toEqual(2)
+
+  // the reduceProp func should have been called once
+  expect(mockReduceProps.mock.calls.length).toBe(1)
+})

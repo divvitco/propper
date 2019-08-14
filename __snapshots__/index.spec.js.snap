@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the reduceProps function is called 1`] = `
+exports[`class components properly pass through dynamic props 1`] = `
 <Component
   items={
     Array [
@@ -13,6 +13,31 @@ exports[`the reduceProps function is called 1`] = `
   <ClassComp
     forceUpdate={[Function]}
     truthyCount={2}
-  />
+  >
+    You have 
+    2
+     items available
+  </ClassComp>
+</Component>
+`;
+
+exports[`functional components properly pass through dynamic props 1`] = `
+<Component
+  items={
+    Array [
+      true,
+      true,
+      false,
+    ]
+  }
+>
+  <FuncComp
+    forceUpdate={[Function]}
+    truthyCount={2}
+  >
+    You have 
+    2
+     items available
+  </FuncComp>
 </Component>
 `;
