@@ -9,7 +9,7 @@ function propper (transformProps) {
   return Comp => props => {
     const forceUpdate = initForceUpdate()
 
-    return <Comp forceUpdate={forceUpdate} {...props} {...transformProps(props)} />
+    return <Comp forceUpdate={forceUpdate} {...transformProps(props)} />
   }
 }
 

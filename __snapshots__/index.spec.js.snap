@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the reduceProps function is called 1`] = `
+<Component
+  items={
+    Array [
+      true,
+      true,
+      false,
+    ]
+  }
+>
+  <ClassComp
+    forceUpdate={[Function]}
+    truthyCount={2}
+  />
+</Component>
+`;
