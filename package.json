@@ -1,6 +1,6 @@
 {
   "name": "@overlaylabs/propper",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Transform React props on the fly without redux",
   "main": "/lib/index.js",
   "scripts": {
@@ -8,7 +8,9 @@
     "build": "rm -rf lib/ && babel index.js -d lib/"
   },
   "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "setupFilesAfterEnv": [
       "<rootDir>/jest.setup.js"
     ]
